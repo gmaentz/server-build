@@ -46,6 +46,7 @@ provider "aws" {
 
 module "server" {
   source      = "./server"
+  count = 2
   server_os = "ubuntu"
   identity    = local.identity
   key_name    = module.keypair.key_name
