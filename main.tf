@@ -33,11 +33,6 @@ variable "server_os" {
   description = "Server Operating System"
   default     = "ubuntu"
 }
-
-locals {
-  identity = "terraform-nyl-camel"
-}
-
 provider "aws" {
   access_key = var.access_key
   secret_key = var.secret_key
@@ -48,7 +43,7 @@ module "server" {
   source      = "./server"
   count = 2
   server_os = "ubuntu"
-  identity    = local.identity
+  identity    = "gabeserver"
   key_name    = module.keypair.key_name
   private_key = module.keypair.private_key_pem
   subnet_id = var.subnet_id
