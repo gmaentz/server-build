@@ -55,7 +55,7 @@ module "keypair" {
   source  = "mitchellh/dynamic-keys/aws"
   version = "2.0.0"
   path    = "${path.root}/keys"
-  name    = "${local.identity}-key"
+  name    = "gabeserver-key"
 }
 
 output "public_ip" {
